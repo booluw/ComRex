@@ -1,0 +1,69 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 24/04/2020 23:33
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-meeting:before { content: "\f100"; }
+.flaticon-index:before { content: "\f101"; }
+.flaticon-round-table:before { content: "\f102"; }
+.flaticon-company:before { content: "\f103"; }
+.flaticon-cash-flow:before { content: "\f104"; }
+.flaticon-negotiation:before { content: "\f105"; }
+.flaticon-stock:before { content: "\f106"; }
+.flaticon-holding-wrench:before { content: "\f107"; }
+.flaticon-international:before { content: "\f108"; }
+.flaticon-stock-1:before { content: "\f109"; }
+.flaticon-stable:before { content: "\f10a"; }
+.flaticon-euro:before { content: "\f10b"; }
+.flaticon-trade:before { content: "\f10c"; }
+.flaticon-stock-2:before { content: "\f10d"; }
+.flaticon-trade-1:before { content: "\f10e"; }
+.flaticon-exchange:before { content: "\f10f"; }
+.flaticon-euro-1:before { content: "\f110"; }
+.flaticon-business:before { content: "\f111"; }
+.flaticon-bid:before { content: "\f112"; }
+.flaticon-trading:before { content: "\f113"; }
+.flaticon-growth:before { content: "\f114"; }
+.flaticon-water-saving:before { content: "\f115"; }
+.flaticon-agronomy:before { content: "\f116"; }
+.flaticon-horse:before { content: "\f117"; }
+.flaticon-sack:before { content: "\f118"; }
+.flaticon-chicken:before { content: "\f119"; }
+.flaticon-tractor:before { content: "\f11a"; }
+.flaticon-speech-bubble:before { content: "\f11b"; }
+.flaticon-paper-plane:before { content: "\f11c"; }
+.flaticon-comments:before { content: "\f11d"; }
+.flaticon-email:before { content: "\f11e"; }
+.flaticon-mail:before { content: "\f11f"; }
+.flaticon-email-1:before { content: "\f120"; }
+.flaticon-newsletter:before { content: "\f121"; }
+.flaticon-clock:before { content: "\f122"; }
+.flaticon-clock-1:before { content: "\f123"; }
+.flaticon-banknotes:before { content: "\f124"; }

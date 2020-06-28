@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/fonts/flaticon.css" />
+    <link rel="stylesheet" href="assets/fonts/material-icons.css" />
+    <link rel="stylesheet" href="assets/_styles.css" />
+    <title>Dashboard || ComRex</title>
+</head>
+<body>
+    <section id="app" ref="body">
+        <wallet-modal v-if="wallet" :balance="account_balance" @close="wallet = false"></wallet-modal>
+        <header class="header">
+            <nav class="header__nav">
+                <a href="index.html" class="link__group link--subtile">
+                    C<img src="assets/imgs/logo.jpg" class="comrex__logo" alt="ComRex logo" />
+                    mRex
+                </a>
+                <ul class="nav__list">
+                    <li class="list__item btn-group">
+                            <button class="btn" :class="mode == 'investment' ? 'btn--primary' :''" @click="mode = 'investment'">Invest</button>
+                        <button class="btn" :class="mode == 'trade' ? 'btn--primary' :''" @click="mode = 'trade'">Trade</button>
+                    </li>
+                    <li class="list__item">
+                        <span class="user-details">
+                            <span class="user-details__name">
+                                <b>David Utulor</b>
+                                <span class="--clickable" ref="account" @click="wallet = true">&dollar; 1,234,882</span>
+                            </span>
+                            <img src="assets/imgs/CEO.png" class="user-details__avatar" />
+                        </span>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="duo-container">
+            <div class="duo-container__left">
+                <a href="profile.html" class="user-card z-1">
+                    <img src="assets/imgs/CEO.png" class="user-card__img" />
+                    <h3 class="user-card__name heading">David Utulor</h3>
+                    <p class="user-card__id">#002392303</p>    
+                </a>
+                <br />
+                <div class="z-1">
+                    <a href="#" class="duo__link active">
+                        <i class="flaticon-stock duo__icon"></i>
+                        Dashboard
+                    </a>
+                    <a href="deals.html" class="duo__link">
+                        <i class="material-icons duo__icon">bookmark</i>
+                        My Deals
+                    </a>
+                    <a href="deals.html#list" class="duo__link">
+                        <i class="material-icons duo__icon">save</i>
+                        Saved List
+                    </a>
+                    <a href="#" class="duo__link">
+                        <i class="material-icons duo__icon">card_giftcard</i>
+                        Claim Bonus
+                    </a>
+                    <div>
+                        <input type="checkbox" class="toggler" id="settings" />
+                        <label for="settings">
+                            <a class="duo__link">
+                                <i class="material-icons duo__icon">settings</i>
+                                Settings
+                            </a>
+                        </label>
+                        <div class="toggle">
+                            <a href="settings.html#account" class="duo__link">
+                                <i class="material-icons duo__icon">account_circle</i>
+                                Account Settings
+                            </a>
+                            <a href="settings.html#company" class="duo__link">
+                                <i class="material-icons duo__icon">info</i>
+                                Company Info.
+                            </a>
+                            <a href="settings.html#delete" class="duo__link">
+                                <i class="material-icons duo__icon">delete_forever</i>
+                                Delete Account
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="user-card z-1">
+                    <div class="user-card__details">
+                        <div style="margin: 0 0 .5rem;"><i class="material-icons">location_on</i>Nigeria</div>
+                        <hr />
+                        <br />
+                        Joined: Jan. 23, 2020 5:29pm
+                        <br /><br />
+                        Last LogIn: Feb. 31st, 2020 10:45pm
+                        <br /><br />
+                        <hr />
+                        <br />
+                        IP address: 192.168.32.110
+                    </div>
+                </div>
+            </div>
+            <div class="duo-container__main">
+                <div class="ticket-card" v-if="mode =='trade'">
+                    <h3 class="ticket__heading">Trading Account</h3>
+                    <div class="container container--no-padding">
+                            <div class="container container--no-padding" style="flex-direction: column;">
+                                <div class="ticket-card dash dash--good" style="width: auto;">
+                                    <h1 class="ticket__heading">Trading Balance</h1>
+                                    <h1 class="heading heading--left">{{account_balance}}</h1>
+                                </div>
+                                <div class="alert alert--info">
+                                    God bless bless the farming man, he doesn't just feed us but also makes us get the booast we all need.    
+                                </div>
+                            </div>
+                        <div class="ticket-card dash dash--warning">
+                            <h1 class="ticket__heading">Deals</h1>
+                            <div class="slider">
+                                <div class="ticket-card dashie">
+                                    <h1 class="ticket__heading">400 Tn Rice</h1>
+                                    <p class="ticket__sub-heading">Jonny Jones Farms</p>
+                                    <p class="ticket__description ticket__description--bad">Closed: No</p>
+                                </div>
+                                <div class="ticket-card dashie">
+                                    <h1 class="ticket__heading">1,500 Tn Apples</h1>
+                                    <p class="ticket__sub-heading">Kentucky Agromics</p>
+                                    <p class="ticket__description ticket__description--good">Closed: Yes</p>
+                                </div>
+                                <div class="ticket-card dashie">
+                                    <h1 class="ticket__heading">400 Tn Charcoal</h1>
+                                    <p class="ticket__sub-heading">Jonny Jones Farms</p>
+                                    <p class="ticket__description ticket__description--pending">Closed: Pending</p>
+                                </div>
+                                <div class="ticket-card dashie">
+                                    <h1 class="ticket__heading">400 Tn Charcoal</h1>
+                                    <p class="ticket__sub-heading">Jonny Jones Farms</p>
+                                    <p class="ticket__description ticket__description--pending">Closed: Pending</p>
+                                </div>
+                            </div>
+                            <br />
+                            <a href="deals.html" class="btn">All deals</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ticket-card"  v-if="mode =='investment'">
+                    <h3 class="ticket__heading">Investment Account</h3>
+                    <div class="container container--no-padding" style="width: 100%;">
+                        <div class="container container--no-padding" style="flex-direction: column;width: 49%;">
+                            <div class="ticket-card dash dash--good" style="width: 100%;">
+                                <h1 class="ticket__heading">Investment Balance</h1>
+                                <h1 class="heading heading--left">{{account_balance}}</h1>
+                            </div>
+                            <br />
+                            <div class="alert alert--info">
+                                The investments you make today, puts food on your table tomorrow.
+                            </div>
+                        </div>
+                        <div class="ticket-card dash dash--warning">
+                            <h1 class="ticket__heading">Investment Returns</h1>
+                            <div class="slider">
+                                <div class="ticket-card dashie">
+                                    <h1 class="ticket__heading">Charcoal</h1>
+                                    <p class="ticket__sub-heading">26th Dec. 2013</p>
+                                    <p class="ticket__description ticket__description--warning">0 units</p>
+                                </div>
+                                <div class="ticket-card dashie">
+                                    <h1 class="ticket__heading">Chaff</h1>
+                                    <p class="ticket__sub-heading">16th Dec. 2017</p>
+                                    <p class="ticket__description ticket__description--bad">- 4 units</p>
+                                </div>
+                                <div class="ticket-card dashie">
+                                    <h1 class="ticket__heading">Potatoes</h1>
+                                    <p class="ticket__sub-heading">20th Feb. 2013</p>
+                                    <p class="ticket__description ticket__description--good">+ 54 units</p>
+                                </div>
+                            </div>
+                            <br />
+                            <a href="deals.html" class="btn">All Investments</a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="container container--no-padding" v-if="mode == 'investment'">
+                    <div class="ticket-card">
+                        <h3 class="ticket__heading">Commodities</h3>
+                        <p class="ticket__sub-heading">
+                            Investment balance &dollar; 1,234,882
+                        </p>
+                        <div class="chart">
+                            <div class="bar" :class="tab=='charcoal' ? 'active': ''" @click="tab = 'charcoal'">
+                                <i class="bar__icon material-icons">check</i>
+                                <div class="bar__main">
+                                    <h3 class="bar__title">Charcoal</h3>
+                                    <p class="bar__sub-title">Commodity</p>
+                                </div>
+                                <div class="bar__change">
+                                    <span class="bar__percentage">90%</span>
+                                    <span class="bar__strength bar__strength--good">+0.55%</span>
+                                </div>
+                            </div>
+                            <div class="bar" :class="tab=='starch' ? 'active': ''" @click="tab = 'starch'">
+                                <i class="bar__icon material-icons">check</i>
+                                <div class="bar__main">
+                                    <h3 class="bar__title">Starch</h3>
+                                    <p class="bar__sub-title">Commodity</p>
+                                </div>
+                                <div class="bar__change">
+                                    <span class="bar__percentage">50%</span>
+                                    <span class="bar__strength bar__strength--bad">-0.05%</span>
+                                </div>
+                            </div>
+                            <div class="bar" :class="tab=='apple' ? 'active': ''" @click="tab = 'apple'">
+                                <i class="bar__icon material-icons">check</i>
+                                <div class="bar__main">
+                                    <h3 class="bar__title">Apples</h3>
+                                    <p class="bar__sub-title">Commodity</p>
+                                </div>
+                                <div class="bar__change">
+                                    <span class="bar__percentage">30%</span>
+                                    <span class="bar__strength">0.00%</span>
+                                </div>
+                            </div>
+                            <div class="bar" :class="tab=='rice' ? 'active': ''" @click="tab = 'rice'">
+                                <i class="bar__icon material-icons">check</i>
+                                <div class="bar__main">
+                                    <h3 class="bar__title">Rice</h3>
+                                    <p class="bar__sub-title">Commodity</p>
+                                </div>
+                                <div class="bar__change">
+                                    <span class="bar__percentage">160%</span>
+                                    <span class="bar__strength bar__strengt--good">+5.30%</span>
+                                </div>
+                            </div>
+                            <div class="bar" :class="tab=='chaff' ? 'active': ''" @click="tab = 'chaff'">
+                                <i class="bar__icon material-icons">check</i>
+                                <div class="bar__main">
+                                    <h3 class="bar__title">Chaff</h3>
+                                    <p class="bar__sub-title">By product</p>
+                                </div>
+                                <div class="bar__change">
+                                    <span class="bar__percentage">6%</span>
+                                    <span class="bar__strength bar__strengt--good">+0.25%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 49%;">
+                    <div class="ticket-card ticket-card--full">
+                        <h1 class="ticket__heading">Chart</h1>
+                        <p class="ticket__sub-heading">
+                            Investment returns
+                        </p>
+                        <div id="chart">
+                            <h1>Chart!</h1>
+                            <h1>Chart!!</h1>
+                            <h1>Chart!!!</h1>
+                        </div>
+                        <p class="ticket__sub-heading">{{tab}}'s trading progression</p>
+                    </div>
+                    <br />
+                    <div class="ticket-card ticket-card--full">
+                        <h3 class="ticket__heading">Invest</h3>
+                        <h3 class="heading">~ +12 units / mon</h3>
+                        <form action="" method="post" class="">
+                            <div class="input-group">
+                                <label class="input__label">Period (Months)</label>
+                                <input type="number" class="input__input" />
+                            </div>
+                            <div class="input-group">
+                                <label class="input__label">Base Currency</label>
+                                <select class="input__input">
+                                    <option value="euro">Pounds (&pound;)</option>
+                                    <option value="euro">Euro (&euro;)</option>
+                                    <option value="euro">Dollar (&dollar;)</option>
+                                    <option value="euro">Naira (&Nopf;)</option>
+                                    <option value="euro">Yen (&yen;)</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label class="input__label">Unit Price</label>
+                                <input type="number" class="input__input" />
+                            </div>
+                            <button class="btn btn--primary btn--full-width">Invest Now</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                <form action="" method="POST" class="container container--no-padding" v-if="mode =='trade'">
+                    <div class="ticket-card" style="margin: 0;">
+                        <h1 class="ticket__heading">Trading Rate</h1>
+                        <p class="ticket__sub-heading">Measured in Tonnes (Tn)</p>
+                        <div class="input-group">
+                            <label class="input__label">Trade Type</label>
+                            <select class="input__input">
+                                <option value="buy">Buy</option>
+                                <option value="sell">Sell</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label class="input__label">Commodity</label>
+                            <select name="trading_commodity" class="input__input">
+                                <option value="apple">Apple</option>
+                                <option value="rice">Rice</option>
+                                <option value="chaff">Chaff</option>
+                                <option value="charcoal">Charcoal</option>
+                                <option value="starch">Starch</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label class="input__label">Quantity</label>
+                            <input type="number" class="input__input" />
+                        </div>
+                        <div class="input-group">
+                            <label class="input__label">Currency</label>
+                            <select class="input__input">
+                                <option value="euro">Pounds (&pound;)</option>
+                                <option value="euro">Euro (&euro;)</option>
+                                <option value="euro">Dollar (&dollar;)</option>
+                                <option value="euro">Naira (&Nopf;)</option>
+                                <option value="euro">Yen (&yen;)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label class="input__label">Price</label>
+                            <input type="number" class="input__input" />
+                        </div>
+                        <button class="btn btn--primary btn--full-width">Trade</button>
+                    </div>
+                    <div class="ticket-card" style="margin: 0;">
+                        <h1 class="ticket__heading">Barter Rate</h1>
+                        <p class="ticket__sub-heading">Measured in Tonnes (Tn)</p>
+                        <div class="exchanger">
+                            <div class="input-group input-group--small">
+                                <select v-model="exchanger.from_name" class="input__label">
+                                    <option value="apple" v-if="exchanger.to_name != 'apple'">Apple</option>
+                                    <option value="rice" v-if="exchanger.to_name != 'rice'">Rice</option>
+                                    <option value="chaff" v-if="exchanger.to_name != 'chaff'">Chaff</option>
+                                    <option value="charcoal" v-if="exchanger.to_name != 'charcoal'">Charcoal</option>
+                                    <option value="starch" v-if="exchanger.to_name != 'starch'">Starch</option>
+                                </select>
+                                <input type="number" v-model="exchanger.from_amount" class="input__input"/>
+                            </div>
+                           <b>=</b>
+                            <div class="input-group input-group--small">
+                                <select v-model="exchanger.to_name" class="input__label">
+                                    <option value="apple" v-if="exchanger.from_name != 'apple'">Apple</option>
+                                    <option value="rice" v-if="exchanger.from_name != 'rice'">Rice</option>
+                                    <option value="chaff" v-if="exchanger.from_name != 'chaff'">Chaff</option>
+                                    <option value="charcoal" v-if="exchanger.from_name != 'chacoal'">Charcoal</option>
+                                    <option value="starch" v-if="exchanger.from_name != 'starch'">Starch</option>
+                                </select>
+                                <input type="number" v-model="exchanger.to_amount" class="input__input" disabled/>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="input__label">Trade Type</label>
+                            <select class="input__input" v-model="exchanger.trade_type">
+                                <option value="buy">Buy</option>
+                                <option value="sell">Sell</option>
+                            </select>
+                        </div>
+                        <button class="btn btn--primary btn--full-width">Barter</button>
+                    </div>
+            </div>
+        </section>
+    </section>
+    <script type="text/x-template" id="wallet-template">
+        <transition>
+        <section class="modal-container">
+            <div class="modal">
+                <div class="modal__head">
+                    <i class="material-icons modal__icon" @click="$emit('close')">keyboard_backspace</i>
+                    <h3 class="modal__heading">Wallet</h3>
+                </div>
+                <div class="modal__body">
+                    <h6 class="modal__deal-type">Your current wallet balance</h6>
+                    <div class="flex" style="align-items: center;padding:0;margin: 0;">
+                        <h3 class="modal__title" style="flex-basis: 70%">{{balance}}</h3>
+                    </div>
+                    <p class="modal__text">
+                        Note that your returns from investments are automatically added to the above balance.
+                        <br /><br /><br />
+                        <b style="color: var(--base)">Add Funds:</b>
+                        <div class="modal__description">
+                            <form action="" method="POST">
+                                <div class="container container--nopadding">
+                                    <div class="formmy">
+                                        <div class="formmy__label">MasterCard</div>
+                                        <div style="margin: 0 0 0 1rem">
+                                            <input type="radio" class="formmy__checkbox" name="card" id="mastercard" value="mastercard" />
+                                            <label for="mastercard" class="checkbox">
+                                                <i class="material-icons">check</i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="formmy">
+                                        <div class="formmy__label">Verve</div>
+                                        <div style="margin: 0 0 0 1rem">
+                                            <input type="radio" class="formmy__checkbox" name="card" id="verve" value="verve" />
+                                            <label for="verve" class="checkbox">
+                                                <i class="material-icons">check</i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="formmy">
+                                        <div class="formmy__label">Visa</div>
+                                        <div style="margin: 0 0 0 1rem">
+                                            <input type="radio" class="formmy__checkbox" name="card" id="visa" value="visa" />
+                                            <label for="visa" class="checkbox">
+                                                <i class="material-icons">check</i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formmy">
+                                    <label class="formmy__label" for="amount">Amout</label>
+                                    <input class="formmy__input" type="number" name="amount" id="amount" />
+                                </div>
+                                <div class="formmy">
+                                    <label class="formmy__label" for="number">Card Number</label>
+                                    <input class="formmy__input" type="number" name="cardNumber" id="number" />
+                                </div>
+                                <div class="formmy">
+                                    <label class="formmy__label" for="number">Cvv / Password</label>
+                                    <div class="container" style="justify-content: flex-end;padding: 0;margin: 0;">
+                                        <input class="formmy__input" type="number" name="cardCvv" title="Cvv code" style="width: 25%;margin:0 1rem;"/>
+                                        <input class="formmy__input" type="number" name="cardPw" title="password for this card" style="width: 50%;margin:0;"/>
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <button class="btn--full-width modal__btn modal__btn--good">Add Credit</button>
+                            </form>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </section>
+        </transition>
+    </script>
+    <script src="assets/vue.min.js"></script>
+    <script src="assets/_script.js"></script>
+</body>
+</html>

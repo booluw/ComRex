@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/fonts/flaticon.css" />
+    <link rel="stylesheet" href="assets/fonts/material-icons.css" />
+    <link rel="stylesheet" href="assets/_styles.css" />
+    <title>Deals || ComRex</title>
+    <style>
+        #account,#company,#delete {display: none;}
+        #account:target,#company:target,#delete:target{ display: block;}
+    </style>
+</head>
+<body>
+    <section id="app" ref="body">
+        <wallet-modal v-if="wallet" :balance="account_balance" @close="wallet = false"></wallet-modal>
+        <header class="header">
+            <nav class="header__nav">
+                <a href="index.html" class="link__group link--subtile">
+                    C<img src="assets/imgs/logo.jpg" class="comrex__logo" alt="ComRex logo" />
+                    mRex
+                </a>
+                <ul class="nav__list">
+                    <li class="list__item">
+                    </li>
+                    <li class="list__item">
+                        <span class="user-details">
+                            <span class="user-details__name">
+                                <b>David Utulor</b>
+                                <span class="--clickable" ref="account" @click="wallet = true">&dollar; 1,234,882</span>
+                            </span>
+                            <img src="assets/imgs/CEO.png" class="user-details__avatar" />
+                        </span>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="duo-container">
+            <div class="duo-container__left">
+                <div class="user-card z-1">
+                    <img src="assets/imgs/CEO.png" class="user-card__img" />
+                    <h3 class="user-card__name heading">David Utulor</h3>
+                    <p class="user-card__id">#002392303</p>    
+                </div>
+                <br />
+                <div class="z-1">
+                    <a href="dashboard.html" class="duo__link">
+                        <i class="flaticon-stock duo__icon"></i>
+                        Dashboard
+                    </a>
+                    <a href="deals.html" class="duo__link">
+                        <i class="material-icons duo__icon">bookmark</i>
+                        My Deals
+                    </a>
+                    <a href="deals.html" class="duo__link">
+                        <i class="material-icons duo__icon">save</i>
+                        Saved List
+                    </a>
+                    <a href="#" class="duo__link">
+                        <i class="material-icons duo__icon">card_giftcard</i>
+                        Claim Bonus
+                    </a>
+                    <div>
+                        <input type="checkbox" class="toggler" id="settings" />
+                        <label for="settings">
+                            <a class="duo__link active">
+                                <i class="material-icons duo__icon">settings</i>
+                                Settings
+                            </a>
+                        </label>
+                        <div class="toggle">
+                            <a href="#account" class="duo__link">
+                                <i class="material-icons duo__icon">account_circle</i>
+                                Account Settings
+                            </a>
+                            <a href="#company" class="duo__link">
+                                <i class="material-icons duo__icon">info</i>
+                                Company Info.
+                            </a>
+                            <a href="#delete" class="duo__link">
+                                <i class="material-icons duo__icon">delete_forever</i>
+                                Delete Account
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="user-card z-1">
+                    <div class="user-card__details">
+                        <div style="margin: 0 0 .5rem;"><i class="material-icons">location_on</i>Nigeria</div>
+                        <hr />
+                        <br />
+                        Joined: Jan. 23, 2020 5:29pm
+                        <br /><br />
+                        Last LogIn: Feb. 31st, 2020 10:45pm
+                        <br /><br />
+                        <hr />
+                        <br />
+                        IP address: 192.168.32.110
+                    </div>
+                </div>
+            </div>
+            <div class="duo-container__main">
+                <div class="container container--no-padding">
+                    <a href="#account" class="card card--fixed-width">
+                        <i class="material-icons card__icons">account_circle</i>
+                        <h3 class="card__heading">Account Settings</h3>
+                        <p class="card__text">
+                            Settings related to your personal account, here on <b>ComRex</b>.
+                        </p>
+                    </a>
+                    <a href="#company" class="card card--fixed-width">
+                        <i class="material-icons card__icons">info</i>
+                        <h3 class="card__heading">Company Settings</h3>
+                        <p class="card__text">
+                            Settings related to your company's profile, here on <b>ComRex</b>.
+                        </p>
+                    </a>
+                    <a href="#delete" class="card card--fixed-width card--danger">
+                        <i class="material-icons card__icons">delete_forever</i>
+                        <h3 class="card__heading">Delete Account</h3>
+                        <p class="card__text">
+                            Delete your <b>ComRex</b> account. All infomations saved with this 
+                            account would be deleted and you wont be able to access you account after 30 days.
+                        </p>
+                    </a>
+                </div>
+                <form action="" method="POST" id="account" class="ticket-card ticket-card--full">
+                    <h3 class="ticket__heading">Account Settings</h3>
+                    <p class="ticket__sub-heading">Edit details about yourself.</p>
+                    <div class="formmy">
+                        <label for="name" class="formmy__label">Name</label>
+                        <input type="text" name="name" class="formmy__input"/>
+                    </div>
+                    <div class="formmy">
+                        <label for="cname" class="formmy__label">Company Name</label>
+                        <input type="text" name="cname" class="formmy__input"/>
+                    </div>
+                    <div class="formmy">
+                        <label for="nation" class="formmy__label">Nationality</label>
+                        <input type="text" name="nation" class="formmy__input"/>
+                    </div>
+                    <div class="formmy">
+                        <label for="district" class="formmy__label">District</label>
+                        <input type="text" name="district" class="formmy__input"/>
+                    </div>
+                    <div class="formmy">
+                        <div class="formmy__label">Is this a private account?</div>
+                        <div style="display: flex;justify-items: flex-start;width: 52%;">
+                            <input type="checkbox" class="formmy__checkbox" name="private" id="private" />
+                            <label for="private"  class="checkbox">
+                                <i class="material-icons">check</i>
+                            </label>
+                            <span class="text">Yes</span>
+                        </div>
+                    </div>
+                    <div class="formmy">
+                        <button class="btn btn--primary btn--full-width">Save Edit</button>
+                    </div>
+                </form>
+                <form action="" method="POST" id="company" class="ticket-card ticket-card--full">
+                    <h3 class="ticket__heading">Company Information Settings</h3>
+                    <p class="ticket__sub-heading">Edit details about your company.</p>
+                    <div class="formmy">
+                        <label for="name" class="formmy__label">Name</label>
+                        <input type="text" name="name" class="formmy__input"/>
+                    </div>
+                    <div class="formmy">
+                        <label for="country" class="formmy__label">Country</label>
+                        <input type="text" name="country" class="formmy__input"/>
+                    </div>
+                    <div class="formmy">
+                        <label for="city" class="formmy__label">City</label>
+                        <input type="text" name="city" class="formmy__input"/>
+                    </div>
+                    <div class="formmy">
+                        <label for="zip" class="formmy__label">Zip Code</label>
+                        <input type="number" name="zip" class="formmy__input"/>
+                    </div>
+                    <div class="formmy">
+                        <label for="district" class="formmy__label">District</label>
+                        <input type="text" name="district" class="formmy__input"/>
+                    </div>
+                    <div class="formmy">
+                        <div class="formmy__label">Is this a registered company?</div>
+                        <div style="display: flex;justify-items: flex-start;width: 52%;">
+                            <input type="checkbox" class="formmy__checkbox" name="registered" id="registered" />
+                            <label for="registered" class="checkbox">
+                                <i class="material-icons">check</i>
+                            </label>
+                            <span class="text">Yes</span>
+                        </div>
+                    </div>
+                    <div class="formmy">
+                        <button class="btn btn--primary btn--full-width">Save Edit</button>
+                    </div>
+                </form>
+                <form action="" method="POST" id="delete" class="ticket-card ticket-card--full">
+                    <h3 class="ticket__heading">Delete Account</h3>
+                    <p class="ticket__sub-heading">
+                        You account would be active, but permanently deleted after 30 days.
+                    </p>
+                    <div class="formmy">
+                        <label class="formmy__label">Confirm Password</label>
+                        <input class="formmy__input" type="text" name="password" />
+                    </div>
+                    <div class="container container--no-padding" style="justify-content: flex-end;margin: 1rem 0 0;">
+                        <button class="btn btn--delete">Delete Account</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </section>
+    <script type="text/x-template" id="wallet-template">
+        <transition>
+        <section class="modal-container">
+            <div class="modal">
+                <div class="modal__head">
+                    <i class="material-icons modal__icon" @click="$emit('close')">keyboard_backspace</i>
+                    <h3 class="modal__heading">Wallet</h3>
+                </div>
+                <div class="modal__body">
+                    <h6 class="modal__deal-type">Your current wallet balance</h6>
+                    <div class="flex" style="align-items: center;padding:0;margin: 0;">
+                        <h3 class="modal__title" style="flex-basis: 70%">{{balance}}</h3>
+                    </div>
+                    <p class="modal__text">
+                        Note that your returns from investments are automatically added to the above balance.
+                        <br /><br /><br />
+                        <b style="color: var(--base)">Add Funds:</b>
+                        <div class="modal__description">
+                            <form action="" method="POST">
+                                <div class="container container--nopadding">
+                                    <div class="formmy">
+                                        <div class="formmy__label">MasterCard</div>
+                                        <div style="margin: 0 0 0 1rem">
+                                            <input type="radio" class="formmy__checkbox" name="card" id="mastercard" value="mastercard" />
+                                            <label for="mastercard" class="checkbox">
+                                                <i class="material-icons">check</i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="formmy">
+                                        <div class="formmy__label">Verve</div>
+                                        <div style="margin: 0 0 0 1rem">
+                                            <input type="radio" class="formmy__checkbox" name="card" id="verve" value="verve" />
+                                            <label for="verve" class="checkbox">
+                                                <i class="material-icons">check</i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="formmy">
+                                        <div class="formmy__label">Visa</div>
+                                        <div style="margin: 0 0 0 1rem">
+                                            <input type="radio" class="formmy__checkbox" name="card" id="visa" value="visa" />
+                                            <label for="visa" class="checkbox">
+                                                <i class="material-icons">check</i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formmy">
+                                    <label class="formmy__label" for="amount">Amout</label>
+                                    <input class="formmy__input" type="number" name="amount" id="amount" />
+                                </div>
+                                <div class="formmy">
+                                    <label class="formmy__label" for="number">Card Number</label>
+                                    <input class="formmy__input" type="number" name="cardNumber" id="number" />
+                                </div>
+                                <div class="formmy">
+                                    <label class="formmy__label" for="number">Cvv / Password</label>
+                                    <div class="container" style="justify-content: flex-end;padding: 0;margin: 0;">
+                                        <input class="formmy__input" type="number" name="cardCvv" title="Cvv code" style="width: 25%;margin:0 1rem;"/>
+                                        <input class="formmy__input" type="number" name="cardPw" title="password for this card" style="width: 50%;margin:0;"/>
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <button class="btn--full-width modal__btn modal__btn--good">Add Credit</button>
+                            </form>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </section>
+        </transition>
+    </script>
+    <script src="assets/vue.min.js"></script>
+    <script src="assets/_script.js"></script>
+</body>
+</html>

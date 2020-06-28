@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/fonts/flaticon.css" />
+    <link rel="stylesheet" href="assets/_styles.css" />
+    <title>Join Us || ComRex</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="header__nav header--fall">
+            <a href="index.html" class="link__group link--subtile">
+                C<img src="assets/imgs/logo.jpg" class="comrex__logo" alt="ComRex logo" />
+                mRex
+            </a>
+            <ul class="nav__list">
+                <li class="list__item"><a href="/#why-comrex" class="item__link">Why ComRex</a></li>
+                <li class="list__item"><a href="/#about-comrex" class="item__link">About US</a></li>
+                <li class="list__item"><a href="join.html" class="item__link item__link--cta active">Join US</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="app" class="form-container">
+        <form action="" method="POST" class="form" @submit.prevent="submit('logged')">
+            <div class="heading-group">
+                <h1 class="heading --clickable" :class="reg ? 'fade' : ''" @click="reg = false">Log In</h1>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h1 class="heading --clickable" :class="reg ? '' : 'fade'" @click="reg = true">Register</h1>
+            </div>
+            <br /><br />
+            <div class="input-group">
+                <label class="input__label">
+                    Email
+                </label>
+                <input type="email" class="input__input" name="email" placeholder="Your Email Address" />
+            </div>
+            <div class="input-group">
+                <label class="input__label">
+                    Password
+                </label>
+                <input type="text" class="input__input" name="password" placeholder="Your password" />
+            </div>
+            <button class="btn btn--primary" v-if="reg == false">Log In</button>
+            <button class="btn btn--primary" v-else>Register</button>
+            <br />
+            <p class="sub-heading" v-if="reg== false">
+                Don't have an account? &nbsp;&nbsp;&nbsp;<a href="#" @click.prevent="reg= true">Register an account</a>
+            </p>
+            <p class="sub-heading" v-else>
+                Already have an account? <a href="#" @click.prevent="reg=false">Log in to your account</a>
+            </p>
+        </form>
+    </section>
+    <script src="assets/vue.min.js"></script>
+    <script src="assets/_script.js"></script>
+</body>
+</html>

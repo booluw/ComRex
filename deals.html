@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/fonts/flaticon.css" />
+    <link rel="stylesheet" href="assets/fonts/material-icons.css" />
+    <link rel="stylesheet" href="assets/_styles.css" />
+    <title>Deals || ComRex</title>
+</head>
+<body>
+    <section id="app" ref="body">
+        <wallet-modal v-if="wallet" :balance="account_balance" @close="wallet = false"></wallet-modal>
+        <header class="header">
+            <nav class="header__nav">
+                <a href="index.html" class="link__group link--subtile">
+                    C<img src="assets/imgs/logo.jpg" class="comrex__logo" alt="ComRex logo" />
+                    mRex
+                </a>
+                <ul class="nav__list">
+                    <li class="list__item">
+                    </li>
+                    <li class="list__item">
+                        <span class="user-details">
+                            <span class="user-details__name">
+                                <b>David Utulor</b>
+                                <span class="--clickable" ref="account" @click="wallet = true">&dollar; 1,234,882</span>
+                            </span>
+                            <img src="assets/imgs/CEO.png" class="user-details__avatar" />
+                        </span>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="duo-container">
+            <div class="duo-container__left">
+                <div class="user-card z-1">
+                    <img src="assets/imgs/CEO.png" class="user-card__img" />
+                    <h3 class="user-card__name heading">David Utulor</h3>
+                    <p class="user-card__id">#002392303</p>    
+                </div>
+                <br />
+                <div class="z-1">
+                    <a href="dashboard.html" class="duo__link">
+                        <i class="flaticon-stock duo__icon"></i>
+                        Dashboard
+                    </a>
+                    <a href="deals.html" class="duo__link" :class="mode=='trade' ? 'active' : ''" @click.prevent="mode = 'trade'">
+                        <i class="material-icons duo__icon">bookmark</i>
+                        My Deals
+                    </a>
+                    <a href="deals.html" class="duo__link" :class="mode=='investment' ? 'active' : ''" @click.prevent="mode = 'investment'">
+                        <i class="material-icons duo__icon">bookmark</i>
+                        My Investments
+                    </a>
+                    <a href="deals.html" class="duo__link" :class="mode=='list' ? 'active' : ''" @click.prevent="mode = 'list'">
+                        <i class="material-icons duo__icon">save</i>
+                        Saved List
+                    </a>
+                    <a href="#" class="duo__link">
+                        <i class="material-icons duo__icon">card_giftcard</i>
+                        Claim Bonus
+                    </a>
+                    <div>
+                        <input type="checkbox" class="toggler" id="settings" />
+                        <label for="settings">
+                            <a class="duo__link">
+                                <i class="material-icons duo__icon">settings</i>
+                                Settings
+                            </a>
+                        </label>
+                        <div class="toggle">
+                            <a href="settings.html#account" class="duo__link">
+                                <i class="material-icons duo__icon">account_circle</i>
+                                Account Settings
+                            </a>
+                            <a href="settings.html#company" class="duo__link">
+                                <i class="material-icons duo__icon">info</i>
+                                Company Info.
+                            </a>
+                            <a href="settings.html#delete" class="duo__link">
+                                <i class="material-icons duo__icon">delete_forever</i>
+                                Delete Account
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="user-card z-1">
+                    <div class="user-card__details">
+                        <div style="margin: 0 0 .5rem;"><i class="material-icons">location_on</i>Nigeria</div>
+                        <hr />
+                        <br />
+                        Joined: Jan. 23, 2020 5:29pm
+                        <br /><br />
+                        Last LogIn: Feb. 31st, 2020 10:45pm
+                        <br /><br />
+                        <hr />
+                        <br />
+                        IP address: 192.168.32.110
+                    </div>
+                </div>
+            </div>
+            <div class="duo-container__main">
+                <section v-if="mode == 'trade'">
+                    <div class="ticket-card ticket-card--full dash dash--warning">
+                        <h3 class="ticket__heading">My Deals</h3>
+                        <div class="slider slider--medium">
+                            <div class="ticket-card">
+                                <div class="ticket__head">
+                                    <h3 class="ticket__heading">400 Tn Rice</h3>
+                                    <span class="ticket__head__options">
+                                        <i class="material-icons">shopping_cart</i>
+                                    </span>
+                                </div>
+                                <p class="ticket__sub-heading">
+                                    <b>$200,000</b><br />
+                                    Ketuncky Farms
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    This product will be dropped off at Apapa Wharf after 24 hours of being closed
+                                </p>
+                                <p class="ticket__description ticket__description--bad">Closed: No</p>
+                            </div>
+                            <div class="ticket-card">
+                                <h3 class="ticket__heading">1000 Tn Apple</h3>
+                                <p class="ticket__sub-heading">
+                                    <b>$1,200,000</b><br />
+                                    Ketuncky Farms
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    This product will be dropped off at Apapa Wharf after 24 hours of being 
+                                </p>
+                                <p class="ticket__description ticket__description--good">Closed: Yes</p>
+                            </div>
+                            <div class="ticket-card">
+                                <h3 class="ticket__heading">800 Tn Banana</h3>
+                                <p class="ticket__sub-heading">
+                                    <b>$900,000</b><br />
+                                    Sao Paulo Hybrid Farms
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    This product will be dropped off at Apapa Wharf after 24 hours of being 
+                                </p>
+                                <p class="ticket__description ticket__description--pending">Closed: Pending</p>
+                            </div>
+                            <div class="ticket-card">
+                                    <div class="ticket__head">
+                                        <h3 class="ticket__heading">1,000 Tn Cocoa</h3>
+                                        <span class="ticket__head__options">
+                                            <i class="material-icons">shopping_cart</i>
+                                        </span>
+                                    </div>
+                                <p class="ticket__sub-heading">
+                                    <b>$200,000</b><br />
+                                    Ketuncky Farms
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    This product will be dropped off at Apapa Wharf after 24 hours of being 
+                                </p>
+                                <p class="ticket__description ticket__description--bad">Closed: No</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="ticket-card" style="background-color: #d1d1d1;">
+                        <h3 class="ticket__heading">Public Deals</h3>
+                        <p class="ticket__sub-heading">Other deals you might want to look at</p>
+                        <div class="flex">
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                <div class="ticket__head">
+                                    <h3 class="ticket__heading">400 Tn Rice</h3>
+                                    <span class="ticket__head__options">
+                                        <i class="material-icons">shopping_cart</i>
+                                    </span>
+                                </div>
+                                <p class="ticket__sub-heading">
+                                    <b>$200,000</b><br />
+                                    Ketuncky Farms
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    This product will be dropped off at Apapa Wharf after 24 hours of being closed
+                                </p>
+                                <p class="ticket__description ticket__description--bad">Closed: No</p>
+                            </a>
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                <h3 class="ticket__heading">1000 Tn Apple</h3>
+                                <p class="ticket__sub-heading">
+                                    <b>$1,200,000</b><br />
+                                    Ketuncky Farms
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    This product will be dropped off at Apapa Wharf after 24 hours of being 
+                                </p>
+                                <p class="ticket__description ticket__description--good">Closed: Yes</p>
+                            </a>
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                <h3 class="ticket__heading">800 Tn Banana</h3>
+                                <p class="ticket__sub-heading">
+                                    <b>$900,000</b><br />
+                                    Sao Paulo Hybrid Farms
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    This product will be dropped off at Apapa Wharf after 24 hours of being 
+                                </p>
+                                <p class="ticket__description ticket__description--pending">Closed: Pending</p>
+                            </a>
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                    <div class="ticket__head">
+                                        <h3 class="ticket__heading">1,000 Tn Cocoa</h3>
+                                        <span class="ticket__head__options">
+                                            <i class="material-icons">shopping_cart</i>
+                                        </span>
+                                    </div>
+                                <p class="ticket__sub-heading">
+                                    <b>$200,000</b><br />
+                                    Ketuncky Farms
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    This product will be dropped off at Apapa Wharf after 24 hours of being 
+                                </p>
+                                <p class="ticket__description ticket__description--bad">Closed: No</p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section  v-if="mode == 'investment'">
+                    <div class="ticket-card ticket-card--full dash dash--good">
+                        <h3 class="ticket__heading">My Investments</h3>
+                        <div class="slider slider--medium">
+                            <div class="ticket-card">
+                                <h3 class="ticket__heading">Egg Plant</h3>
+                                <p class="ticket__sub-heading">
+                                    12th Dec., 2020
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    $80,000
+                                </p>
+                                <p class="ticket__description ticket__description--bad">
+                                    -90 units
+                                </p>
+                            </div>
+                            <div class="ticket-card">
+                                <h3 class="ticket__heading">Rice</h3>
+                                <p class="ticket__sub-heading">
+                                    12th Dec., 2012
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    $100,000    
+                                </p>
+                                <p class="ticket__description ticket__description--bad">
+                                    -20 units
+                                </p>
+                            </div>
+                            <div class="ticket-card">
+                                <h3 class="ticket__heading">Rice</h3>
+                                <p class="ticket__sub-heading">
+                                    12th Dec., 2012
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    $100,000    
+                                </p>
+                                <p class="ticket__description ticket__description--bad">
+                                    -20 units
+                                </p>
+                            </div>
+                            <div class="ticket-card">
+                                <h3 class="ticket__heading">Yam</h3>
+                                <p class="ticket__sub-heading">
+                                    4th Dec., 2012
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    $10,000    
+                                </p>
+                                <p class="ticket__description ticket__description--bad">
+                                    -20 units
+                                </p>
+                            </div>
+                            <div class="ticket-card">
+                                <h3 class="ticket__heading">Cocoa</h3>
+                                <p class="ticket__sub-heading">
+                                    12th Mar., 2013
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    $100,000    
+                                </p>
+                                <p class="ticket__description">
+                                    0 unit
+                                </p>
+                            </div>
+                            <div class="ticket-card">
+                                <h3 class="ticket__heading">Beans</h3>
+                                <p class="ticket__sub-heading">
+                                    10th Dec., 2021
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    $100,000,000
+                                </p>
+                                <p class="ticket__description ticket__description--good">
+                                    +120 units
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="ticket-card" style="background-color: #d1d1d1;">
+                        <h3 class="ticket__heading">Public Investments</h3>
+                        <p class="ticket__sub-heading">Other investments you might want to look at</p>
+                        <div class="flex">
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                <h3 class="ticket__heading">Egg Plant</h3>
+                                <p class="ticket__sub-heading">
+                                    12th Dec., 2020
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    $80,000
+                                </p>
+                                <p class="ticket__description ticket__description--bad">
+                                    -90 units
+                                </p>
+                            </a>
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                <h3 class="ticket__heading">Rice</h3>
+                                <p class="ticket__sub-heading">
+                                    12th Dec., 2012
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    $100,000    
+                                </p>
+                                <p class="ticket__description ticket__description--bad">
+                                    -20 units
+                                </p>
+                            </a>
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                <h3 class="ticket__heading">Rice</h3>
+                                <p class="ticket__sub-heading">
+                                    12th Dec., 2012
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    $100,000    
+                                </p>
+                                <p class="ticket__description ticket__description--bad">
+                                    -20 units
+                                </p>
+                            </a>
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                <h3 class="ticket__heading">Yam</h3>
+                                <p class="ticket__sub-heading">
+                                    4th Dec., 2012
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    $10,000    
+                                </p>
+                                <p class="ticket__description ticket__description--bad">
+                                    -20 units
+                                </p>
+                            </a>
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                <h3 class="ticket__heading">Cocoa</h3>
+                                <p class="ticket__sub-heading">
+                                    12th Mar., 2013
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    $100,000    
+                                </p>
+                                <p class="ticket__description">
+                                    0 unit
+                                </p>
+                            </a>
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                <h3 class="ticket__heading">Beans</h3>
+                                <p class="ticket__sub-heading">
+                                    10th Dec., 2021
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    $100,000,000
+                                </p>
+                                <p class="ticket__description ticket__description--good">
+                                    +120 units
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section v-if="mode == 'list'">
+                    <div class="ticket-card" style="background-color: #d1d1d1;">
+                        <h3 class="ticket__heading">Saved Lists</h3>
+                        <p class="ticket__sub-heading">Deals and Investments you saved</p>
+                        <div class="flex">
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                <div class="ticket__head">
+                                    <h3 class="ticket__heading">400 Tn Rice</h3>
+                                    <span class="ticket__head__options">
+                                        <i class="material-icons">shopping_cart</i>
+                                    </span>
+                                </div>
+                                <p class="ticket__sub-heading">
+                                    <b>$200,000</b><br />
+                                    Ketuncky Farms
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    This product will be dropped off at Apapa Wharf after 24 hours of being closed
+                                </p>
+                                <p class="ticket__description ticket__description--bad">Closed: No</p>
+                            </a>
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                <h3 class="ticket__heading">1000 Tn Apple</h3>
+                                <p class="ticket__sub-heading">
+                                    <b>$1,200,000</b><br />
+                                    Ketuncky Farms
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    This product will be dropped off at Apapa Wharf after 24 hours of being 
+                                </p>
+                                <p class="ticket__description ticket__description--good">Closed: Yes</p>
+                            </a>
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                <h3 class="ticket__heading">800 Tn Banana</h3>
+                                <p class="ticket__sub-heading">
+                                    <b>$900,000</b><br />
+                                    Sao Paulo Hybrid Farms
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    This product will be dropped off at Apapa Wharf after 24 hours of being 
+                                </p>
+                                <p class="ticket__description ticket__description--pending">Closed: Pending</p>
+                            </a>
+                            <a href="#deal" @click.prevent="modal = true" class="ticket-card ticket--no-shadow --clickable">
+                                    <div class="ticket__head">
+                                        <h3 class="ticket__heading">1,000 Tn Cocoa</h3>
+                                        <span class="ticket__head__options">
+                                            <i class="material-icons">shopping_cart</i>
+                                        </span>
+                                    </div>
+                                <p class="ticket__sub-heading">
+                                    <b>$200,000</b><br />
+                                    Ketuncky Farms
+                                </p>
+                                <p class="ticket__description ticket__description--light">
+                                    This product will be dropped off at Apapa Wharf after 24 hours of being 
+                                </p>
+                                <p class="ticket__description ticket__description--bad">Closed: No</p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <section class="modal-container" ref="modal" v-if="modal">
+            <div class="modal">
+                <div class="modal__head">
+                    <i class="material-icons modal__icon" @click="modal = false">keyboard_backspace</i>
+                    <h3 class="modal__heading">Deal</h3>
+                </div>
+                <div class="modal__body">
+                    <h6 class="modal__deal-type">You'Re Buying</h6>
+                    <div class="flex" style="align-items: center;padding:0;margin: 0;">
+                        <h3 class="modal__title" style="flex-basis: 70%">1000 Tn Apple</h3>
+                        <button class="modal__btn" style="flex-basis: 20%;">Close Deal</button>
+                    </div>
+                    <p class="modal__text">
+                        Worth <b>$200, 000</b>, from <a href="profile.html" class="modal__link">Ketuncky Farms</a>
+                        <br /><br /><br />
+                        <b style="color: var(--base)">Description:</b>
+                        <div class="modal__description">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, officiis dolorum! Eius exercitationem unde obcaecati distinctio? Assumenda obcaecati mollitia rerum quam recusandae, id ipsa expedita eum neque error pariatur, atque ipsum vel. Provident consequatur, aliquid accusamus quae molestias eveniet totam voluptatum doloribus adipisci libero mollitia temporibus! Quos, quaerat? Aperiam qui sint corrupti. Repellat laudantium assumenda sint. Numquam id amet, iste consequatur error modi rerum nam aspernatur distinctio necessitatibus dolore reiciendis quidem animi cupiditate voluptate beatae incidunt omnis adipisci provident fugiat assumenda itaque quaerat reprehenderit dignissimos! Error, quaerat adipisci! Asperiores laborum nesciunt recusandae eius voluptas vero, repellat expedita mollitia perferendis culpa?
+                        </div>
+                    </p>
+                    <div class="modal__footer">
+                        <button class="modal__btn modal__btn--bad">PullOut of This Deal</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <script type="text/x-template" id="wallet-template">
+        <transition>
+        <section class="modal-container">
+            <div class="modal">
+                <div class="modal__head">
+                    <i class="material-icons modal__icon" @click="$emit('close')">keyboard_backspace</i>
+                    <h3 class="modal__heading">Wallet</h3>
+                </div>
+                <div class="modal__body">
+                    <h6 class="modal__deal-type">Your current wallet balance</h6>
+                    <div class="flex" style="align-items: center;padding:0;margin: 0;">
+                        <h3 class="modal__title" style="flex-basis: 70%">{{balance}}</h3>
+                    </div>
+                    <p class="modal__text">
+                        Note that your returns from investments are automatically added to the above balance.
+                        <br /><br /><br />
+                        <b style="color: var(--base)">Add Funds:</b>
+                        <div class="modal__description">
+                            <form action="" method="POST">
+                                <div class="container container--nopadding">
+                                    <div class="formmy">
+                                        <div class="formmy__label">MasterCard</div>
+                                        <div style="margin: 0 0 0 1rem">
+                                            <input type="radio" class="formmy__checkbox" name="card" id="mastercard" value="mastercard" />
+                                            <label for="mastercard" class="checkbox">
+                                                <i class="material-icons">check</i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="formmy">
+                                        <div class="formmy__label">Verve</div>
+                                        <div style="margin: 0 0 0 1rem">
+                                            <input type="radio" class="formmy__checkbox" name="card" id="verve" value="verve" />
+                                            <label for="verve" class="checkbox">
+                                                <i class="material-icons">check</i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="formmy">
+                                        <div class="formmy__label">Visa</div>
+                                        <div style="margin: 0 0 0 1rem">
+                                            <input type="radio" class="formmy__checkbox" name="card" id="visa" value="visa" />
+                                            <label for="visa" class="checkbox">
+                                                <i class="material-icons">check</i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formmy">
+                                    <label class="formmy__label" for="amount">Amout</label>
+                                    <input class="formmy__input" type="number" name="amount" id="amount" />
+                                </div>
+                                <div class="formmy">
+                                    <label class="formmy__label" for="number">Card Number</label>
+                                    <input class="formmy__input" type="number" name="cardNumber" id="number" />
+                                </div>
+                                <div class="formmy">
+                                    <label class="formmy__label" for="number">Cvv / Password</label>
+                                    <div class="container" style="justify-content: flex-end;padding: 0;margin: 0;">
+                                        <input class="formmy__input" type="number" name="cardCvv" title="Cvv code" style="width: 25%;margin:0 1rem;"/>
+                                        <input class="formmy__input" type="number" name="cardPw" title="password for this card" style="width: 50%;margin:0;"/>
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <button class="btn--full-width modal__btn modal__btn--good">Add Credit</button>
+                            </form>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </section>
+        </transition>
+    </script>
+    <script src="assets/vue.min.js"></script>
+    <script src="assets/_script.js"></script>
+</body>
+</html>
